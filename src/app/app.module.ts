@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,7 +8,7 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
 
 @NgModule({
   declarations: [AppComponent, EmployeeDashboardComponent],
-  imports: [BrowserModule, ReactiveFormsModule],
+  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
