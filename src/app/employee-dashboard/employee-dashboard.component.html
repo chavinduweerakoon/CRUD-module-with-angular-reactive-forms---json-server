@@ -4,7 +4,7 @@
     <div class="d-flex">
       <button
         type="button"
-        class="btn btn-primary"
+        class="btn btn-secondary"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
@@ -35,8 +35,16 @@
       <td>{{ row.modile }}</td>
       <td>{{ row.salary }}</td>
       <td>
-        <button class="btn btn-info">Edit</button>
-        <button class="btn btn-danger mx-3">Delete</button>
+        <button
+          class="btn btn-info"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Edit
+        </button>
+        <button (click)="deleteEmployee(row)" class="btn btn-danger mx-3">
+          Delete
+        </button>
       </td>
     </tr>
   </tbody>

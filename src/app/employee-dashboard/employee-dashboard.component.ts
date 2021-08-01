@@ -40,6 +40,7 @@ export class EmployeeDashboardComponent implements OnInit {
         let ref = document.getElementById('cancel');
         ref?.click();
         this.formValue.reset();
+        this.getAllEmployee();
       },
       (err) => {
         alert('something went wrong');
@@ -50,6 +51,13 @@ export class EmployeeDashboardComponent implements OnInit {
   getAllEmployee() {
     this.api.getEmployee().subscribe((res) => {
       this.employeeData = res;
+    });
+  }
+  //delete record
+  deleteEmployee(row: any) {
+    this.api.deleteEmployee(row.id).subscribe((res) => {
+      alert('Employee Deleted');
+      this.getAllEmployee();
     });
   }
 }
