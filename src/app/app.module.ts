@@ -9,8 +9,8 @@ import { ApiService } from './shared/api.service';
 
 @NgModule({
   declarations: [AppComponent, EmployeeDashboardComponent],
-  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, ApiService],
-  providers: [],
+  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule],
+  providers: [ApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

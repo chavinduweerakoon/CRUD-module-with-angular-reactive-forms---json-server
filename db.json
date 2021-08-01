@@ -4,6 +4,12 @@
       "id": 1,
       "title": "json-server",
       "author": "typicode"
+    },
+    {
+      "id": 2,
+      "email": "ffff",
+      "mobile": "1111111",
+      "salary": "222222"
     }
   ],
   "comments": [
