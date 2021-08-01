@@ -12,6 +12,8 @@ export class EmployeeDashboardComponent implements OnInit {
   formValue!: FormGroup;
   employeeModelObj: EmployeeModel = new EmployeeModel();
   employeeData!: any;
+  showAdd!: boolean;
+  showUpdate!: boolean;
 
   constructor(private formbuilder: FormBuilder, private api: ApiService) {}
 
@@ -24,6 +26,12 @@ export class EmployeeDashboardComponent implements OnInit {
       salary: [''],
     });
     this.getAllEmployee();
+  }
+  //
+  clickAddEmployee() {
+    this.formValue.reset();
+    this.showAdd = true;
+    this.showUpdate = false;
   }
   //post add new employee
   postEmployeeDetails() {
@@ -62,6 +70,8 @@ export class EmployeeDashboardComponent implements OnInit {
   }
   //set feilds on edit
   onEdit(row: any) {
+    this.showAdd = false;
+    this.showUpdate = true;
     this.employeeModelObj.id = row.id;
     this.formValue.controls['firstName'].setValue(row.firstName);
     this.formValue.controls['lastName'].setValue(row.lastName);

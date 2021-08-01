@@ -3,6 +3,7 @@
     <h1 style="color: aliceblue">Angular CRUD</h1>
     <div class="d-flex">
       <button
+        (click)="clickAddEmployee()"
         type="button"
         class="btn btn-secondary"
         data-bs-toggle="modal"
@@ -136,6 +137,7 @@
           Close
         </button>
         <button
+          *ngIf="showAdd"
           type="button"
           (click)="postEmployeeDetails()"
           class="btn btn-primary"
@@ -143,6 +145,7 @@
           Add
         </button>
         <button
+          *ngIf="showUpdate"
           type="button"
           (click)="updateEmployeeDetails()"
           class="btn btn-primary"
