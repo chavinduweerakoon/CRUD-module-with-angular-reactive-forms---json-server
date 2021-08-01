@@ -36,6 +36,7 @@
       <td>{{ row.salary }}</td>
       <td>
         <button
+          (click)="onEdit(row)"
           class="btn btn-info"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"

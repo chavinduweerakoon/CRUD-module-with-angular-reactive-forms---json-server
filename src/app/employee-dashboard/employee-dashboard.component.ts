@@ -60,4 +60,12 @@ export class EmployeeDashboardComponent implements OnInit {
       this.getAllEmployee();
     });
   }
+  //set feilds on edit
+  onEdit(row: any) {
+    this.formValue.controls['firstName'].setValue(row.firstName);
+    this.formValue.controls['lastName'].setValue(row.lastName);
+    this.formValue.controls['email'].setValue(row.email);
+    this.formValue.controls['mobile'].setValue(row.mobile);
+    this.formValue.controls['salary'].setValue(row.salary);
+  }
 }
