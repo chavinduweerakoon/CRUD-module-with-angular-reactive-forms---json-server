@@ -11,18 +11,21 @@ import { EmployeeModel } from './employee-dashboard.model';
 export class EmployeeDashboardComponent implements OnInit {
   formValue!: FormGroup;
   employeeModelObj: EmployeeModel = new EmployeeModel();
+  employeeData!: any;
 
   constructor(private formbuilder: FormBuilder, private api: ApiService) {}
 
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({
-      firstname: [''],
-      lastname: [''],
+      firstName: [''],
+      lastName: [''],
       email: [''],
       mobile: [''],
       salary: [''],
     });
+    this.getAllEmployee();
   }
+  //post add new employee
   postEmployeeDetails() {
     this.employeeModelObj.firstName = this.formValue.value.firstName;
     this.employeeModelObj.lastName = this.formValue.value.lastName;
@@ -34,11 +37,19 @@ export class EmployeeDashboardComponent implements OnInit {
       (res) => {
         console.log(res);
         alert('Employee added succcessfully');
+        let ref = document.getElementById('cancel');
+        ref?.click();
         this.formValue.reset();
       },
       (err) => {
         alert('something went wrong');
       }
     );
+  }
+  //get all data from json server
+  getAllEmployee() {
+    this.api.getEmployee().subscribe((res) => {
+      this.employeeData = res;
+    });
   }
 }
